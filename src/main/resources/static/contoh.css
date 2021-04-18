@@ -1,0 +1,39 @@
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+  margin-top: 264px;
+}
+
+.table>:not(caption)>*>* {
+   
+  padding-left: inherit;
+}
+
+.navbar a:hover {
+  background-color: #ff0000;
+}
+
+input[type=text], select, input[type=textarea] {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+
+/* Other Classes for Page Styling */
+
+
+

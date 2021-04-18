@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/dashboard.css}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+</head>
+<body>
+ 
+<div th:replace="header :: header(active=${active})">
+</div>
+<div class="container-md">	
+<div class="my-4 p-8 bg-body rounded shadow-md">
+<div class="container-md">
+
+	<div class="main-section">
+		<div class="dashbord">
+			<div class="icon-section">
+				<i class="fa fa-users" aria-hidden="true"></i><br>
+				<small>Jumlah Laporan</small>
+				<p th:each="laporan : ${listLaporan}" th:text="${#aggregates.sum(lstLaporan.![#aggregates.sum(laporan.![idLaporan])])}"></p>
+			</div>
+		</div>
+		<div class="dashbord dashbord-green">
+			<div class="icon-section">
+				<i class="fa fa-money" aria-hidden="true"></i><br>
+				<small>Jumlah Ditanggapi</small>
+				<p th:each="laporan : ${listLaporan}" th:text="${#aggregates.sum(status.[approve])}"></p>
+			</div>
+		</div>
+		<div class="dashbord dashbord-orange">
+			<div class="icon-section">
+				<i class="fa fa-bell" aria-hidden="true"></i><br>
+				<small>Jumlah Laporan Dalam Proses</small>
+				<p th:each="laporan : ${listLaporan}" th:text="${#aggregates.sum(status.[pending])}"></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<div th:replace="kaki :: footer">
+</div>
+</body>
+</html>
